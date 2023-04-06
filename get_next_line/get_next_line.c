@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:50:35 by acerrah           #+#    #+#             */
-/*   Updated: 2022/10/24 13:54:43 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:59:54 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	*get_buffer(int fd, char *left_str)
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
-		left_str = ft_strjoin(left_str, buff);
+		left_str = ft_strjoin_get(left_str, buff);
 	}
 	free(buff);
 	return (left_str);

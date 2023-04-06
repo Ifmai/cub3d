@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 09:07:52 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/06 10:39:33 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:40:15 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_bool	mapstr(t_data *data)
 		!(ft_strnstr(data->buffer, "WE", 2)) && \
 		!(ft_strnstr(data->buffer, "EA", 2)) && \
 		!(ft_strnstr(data->buffer, "C", 1)) && \
-		!(ft_strnstr(data->buffer, "F", 1)))
+		!(ft_strnstr(data->buffer, "F", 1)) && \
+        !(ft_strnstr(data->buffer, "\n", 1)))
 		return (TRUE);
 	return (FALSE);
 }

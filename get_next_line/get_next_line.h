@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:46:31 by acerrah           #+#    #+#             */
-/*   Updated: 2022/10/24 13:46:41 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:00:08 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strdup(const char *s1);
 char	*get_left(char *left);
 char	*get_line(char *buffer);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char *s1, char const *s2);
+char	*ft_strjoin_get(char *s1, char const *s2);
 char	*get_buffer(int fd, char *left_str);
 
 #endif

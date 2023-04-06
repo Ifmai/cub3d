@@ -6,13 +6,14 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/06 10:29:33 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:58:37 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IFMAI_H
 # define IFMAI_H
 
+# include <stdio.h>
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
 
@@ -44,15 +45,22 @@ typedef struct s_data
     
 }            t_data;
 
-//utils fonksiyonları
-int 	check_file_extention(char *path);
-void	error_print(char *error_msg);
 
-//map fonksiyonları
+//General Utils
+void	error_print(char *error_msg);
+void	free_double_array(char **free_array);
+
+
+//map func.
 void    read_file(char *path, t_data *data);
 
-//macro fonksiyonları
+//map : utils func.
+int 	check_file_extention(char *path);
+int		lenght_find(char *path);
+
+//macro func.
 int     macro_select(char *str, t_data *data);
-int		fillstruct(t_data *data);
+t_bool	fillstruct(t_data *data);
+t_bool	mapstr(t_data *data);
 
 #endif

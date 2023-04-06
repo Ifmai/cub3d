@@ -56,7 +56,6 @@ all: ${NAME}
 
 ${NAME}: ${OBJS}
 	@${LIBC} ${NAME} ${OBJS}
-	@echo "\x1b[31m31 SJ\x1b[0m"
 
 .c.o:
 	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

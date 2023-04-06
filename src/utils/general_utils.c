@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 10:30:07 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/06 10:15:22 by hozdemir         ###   ########.fr       */
+/*   Created: 2023/04/06 11:10:35 by hozdemir          #+#    #+#             */
+/*   Updated: 2023/04/06 11:11:24 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
 
-int	check_file_extention(char *path)
+void	free_double_array(char **free_array)
 {
-	char	*check;
-	int		i;
+	int	i;
 
 	i = 0;
-	check = "buc.";
-	while(path[i + 1] != 0)
-		i++;
-	while (*check)
+	if (!free_array)
+		return ;
+	while (free_array[i] != 0)
 	{
-		if (path[i] != *check)
-			return (1);
-		check++;
-		i--;
+		free(free_array[i]);
+		i++;
 	}
-	return (0);
+	free(free_array);
 }
 
 void	error_print(char *error_msg)

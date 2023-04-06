@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acerrah <acerrah@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:29:08 by acerrah           #+#    #+#             */
-/*   Updated: 2022/10/20 17:03:09 by acerrah          ###   ########.fr       */
+/*   Updated: 2023/04/06 12:59:36 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin_get(char *s1, char const *s2)
 {
 	char	*str;
 	int		i;
