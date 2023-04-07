@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/07 13:18:08 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:30:02 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define IFMAI_H
 
 # include <stdio.h>
+# include <math.h>
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
 
