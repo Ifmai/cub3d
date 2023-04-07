@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:25:25 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/06 13:40:38 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/07 13:41:07 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static char *new_ft_strdup(char *str)
 	int		i;
 
 	i = 0;
-	printf("str : %s",str);
 	while(str[i] != '.' && !(str[i] <= 57 && str[i] >= 48))
 		i++;
 	return (ft_strdup(str + i));
@@ -48,18 +47,16 @@ void    read_file(char *path, t_data *data)
 
 	i = 0;
 	fd = open(path, O_RDONLY);
-	/* if (!data->buffer)//bu kalkabilir sadece kontrol ediyorum keyfi
-		error_print(EMPTYFILE); */
 	while(1)
 	{
 		data->buffer = get_next_line(fd);
 		if(!data->buffer)
 			return ;
-		if(ft_isalpha(*data->buffer)) //ilk karakterse gitsin. boşuna sürekli tarama yapmasın
+		if(ft_isalpha(*data->buffer))
 			select_direction_photo(data->buffer, data);
-		else if(macro_select("MAPSTR",data)) // İçinde "NO SO WE EA C F" yoksa giricek yani map'i okuyorum demek.
+		else if(macro_select("MAPSTR",data))
 		{
-			data->map->map[i] = ft_strdup(data->buffer);
+			data->map->game_map[i] = ft_strdup(data->buffer);
 			i++;
 		}
 		free(data->buffer);

@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 09:07:52 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/06 13:40:15 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/07 13:19:08 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ t_bool fillstruct(t_data *data)
     data->map->we_wall_path = 0;
     data->map->inner_lining_color = 0;
     data->map->ground_color = 0;
-    data->map->map = 0;
-
     return (TRUE);
 }

@@ -13,13 +13,10 @@ all: ${NAME}
 
 $(NAME): $(SRCS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(SRCS) $(LIBFT) $(GET_NEXT_LINE) -o $(NAME)
-	@echo "<3 uWu <3 	GO !			<3 uWu <3"
+	@echo "<3 uWu <3 GO ! <3 uWu <3"
 
 $(LIBFT):
-	@echo "<3 uWu <3 	Ready ? 		<3 uWu <3"
-	@echo "<3 uWu <3 	Make LIBFT Start	<3 uWu <3"
 	@make -C ./libft
-	@echo "<3 uWu <3 	Make LIBFT End		<3 uWu <3"
 
 fclean:
 	@${RM} $(NAME)

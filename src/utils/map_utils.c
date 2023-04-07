@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:30:07 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/06 13:27:16 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/07 13:40:50 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,11 @@ int	lenght_find(char *path)
 	len = 0;
 	temp_len = cub_lenght(path);
 	temp_cub = temp_create(path, temp_len);
-		int z = 0;
-	while(temp_cub[z])
-		printf("%s",temp_cub[z++]);
-	printf("\nbitti\n");
 	while(temp_cub[i] != 0)
 	{
 		j = 0;
 		if(temp_cub[i][j] &&
-			!(temp_cub[i][j] != 'N' && temp_cub[i][j] != 'S' && \
+			(temp_cub[i][j] != 'N' && temp_cub[i][j] != 'S' && \
 			temp_cub[i][j] != 'W' && temp_cub[i][j] != 'E' && \
 			temp_cub[i][j] != 'C' && temp_cub[i][j] != 'F' && \
 			ft_strncmp(temp_cub[i] , "\n", ft_strlen(temp_cub[i]))))
@@ -98,5 +94,5 @@ int	lenght_find(char *path)
 		i++;
 	}
 	free_double_array(temp_cub);
-	return (len + 1); // nul için bebek :3
+	return (len + 1);
 }

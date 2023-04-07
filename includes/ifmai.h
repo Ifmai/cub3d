@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/06 12:58:37 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/07 13:18:08 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_map_data
     char    *ea_wall_path;
 	char	*inner_lining_color;
 	char	*ground_color;
-    char    **map;
+    char    **game_map;
 }				t_map;
 
 typedef struct s_data
