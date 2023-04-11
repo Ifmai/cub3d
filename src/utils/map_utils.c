@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:30:07 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/07 13:40:50 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/11 09:08:49 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,7 @@ int	lenght_find(char *path)
 		if(temp_cub[i][j] &&
 			(temp_cub[i][j] != 'N' && temp_cub[i][j] != 'S' && \
 			temp_cub[i][j] != 'W' && temp_cub[i][j] != 'E' && \
-			temp_cub[i][j] != 'C' && temp_cub[i][j] != 'F' && \
-			ft_strncmp(temp_cub[i] , "\n", ft_strlen(temp_cub[i]))))
+			temp_cub[i][j] != 'C' && temp_cub[i][j] != 'F'))
 			len++;
 		i++;
 	}
