@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 11:10:35 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/06 11:11:24 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:52:12 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ void	free_double_array(char **free_array)
 		i++;
 	}
 	free(free_array);
+}
+
+int	double_strlen(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 void	error_print(char *error_msg)

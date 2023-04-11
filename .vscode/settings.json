@@ -1,7 +1,9 @@
 {
     "files.associations": {
         "ifmai.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "*.a": "c",
+        "get_next_line.h": "c"
     },
     "editor.insertSpaces": false
 }
