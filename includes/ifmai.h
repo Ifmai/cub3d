@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/11 20:10:05 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:06:51 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ typedef struct s_data
 	void		*ea_wall;
 	double		ray_x;
 	double		ray_y;
-	double		plane_x;
+	double		plane_x;// kamera vektörleri bize fov u ayarlıyorlar.
 	double		plane_y;
 	double		wall_x;
 	double		wall_y;
-	double		dir_x;
+	double		dir_x;// kamera başlangıç ve yönlendirme karakterin işte hangi yöne bakıcağını belirlediğimiz arkadaşlar bu değişkenler.
 	double		dir_y;
     char		*buffer;
 }            t_data;
