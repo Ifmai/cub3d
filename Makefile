@@ -1,7 +1,8 @@
 SRCS = ./src/main.c \
 		./src/utils/general_utils.c ./src/utils/map_utils.c \
 		./src/map_func/map_parser.c ./src/map_func/error_check_file.c \
-		./src/macro_func/macro_main.c ./src/macro_func/macro_func.c
+		./src/macro_func/macro_main.c ./src/macro_func/macro_func.c \
+		./src/screen/screen_fill.c
 NAME = Cub3D
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g 
