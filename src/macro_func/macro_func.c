@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 09:07:52 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/14 17:38:37 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:34:55 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ t_bool  select_direction(t_data *data)
 
 t_bool fillstruct(t_data *data)
 {
-	//data->mlx = mlx_init();
+	data->mlx = mlx_init();
+	data->mlx_window = mlx_new_window(data->mlx, MAP_W, MAP_H, "Cub3D");
+	data->img = mlx_new_image(data->mlx, MAP_W, MAP_H);
+	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length,
+									&data->endian);
     data->buffer = 0;
     data->map->ea_wall_path = 0;
     data->map->no_wall_path = 0;
@@ -57,5 +61,7 @@ t_bool fillstruct(t_data *data)
     data->game_data->plane_x = 0;
     data->game_data->plane_y = 0.66;
     data->game_data->player = data->player;
+    data->map->color_g = malloc(sizeof(int) * 3);
+    data->map->color_inner = malloc(sizeof(int) * 3);
     return (TRUE);
 }

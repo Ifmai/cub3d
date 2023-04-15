@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/14 17:58:58 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:30:56 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef struct s_map_data
 	char	*ground_colors;
 	char	**in_color;
 	char	**ground_color;
+	int		*color_g;
+	int		*color_inner;
     char    **game_map;
 }				t_map;
 
@@ -93,22 +95,21 @@ typedef struct s_data
 	t_map		*map;
 	t_player	*player;
 	t_game_data	*game_data;
-	
 	void		*img;
 	char		*addr;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
-
 	void		*mlx;
 	void		*mlx_window;
 	void		*mlx_img;
-	
 	void		*no_wall;
 	void		*so_wall;
 	void		*we_wall;
 	void		*ea_wall;
     char		*buffer;
+	int			ground;
+	int			inner;
 }            t_data;
 
 
@@ -123,6 +124,7 @@ void	error_print(char *error_msg);
 void	free_double_array(char **free_array);
 int 	double_strlen(char **str);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		get_color(int *color_rgb);
 
 //map : utils func.
 int 	check_file_extention(char *path);

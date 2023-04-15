@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:12:47 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/14 16:33:06 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:38:05 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,22 @@ static void	color_painting(t_data *data)
 {
 	int	i;
 	int	j;
-	int index;
 	
 	i = 0;
-	mlx_clear_window(data->mlx, data->mlx_window);
 	while (i < MAP_H)
 	{
 		j = 0;
 		while (j < MAP_W)
 		{
-			index = 0;
-			while (index < 3)
-			{
-				if (i < MAP_H / 2)
-					mlx_pixel_put(data->mlx, data->mlx_window, \
-						j, i, ft_atoi(data->map->in_color[index]));
-				else
-					mlx_pixel_put(data->mlx, data->mlx_window, \
-						j, i, ft_atoi(data->map->ground_color[index]));
-				index++;
-			}
+			if (i < MAP_H / 2)
+				my_mlx_pixel_put(data, j, i, data->inner);
+			else
+				my_mlx_pixel_put(data, j, i, data->ground);
 			j++;
 		}
 		i++;
 	}
+	mlx_put_image_to_window(data->mlx, data->mlx_window, data->img, 0, 0);
 }
 
 int	screen_fill(t_data	*data)
@@ -67,6 +59,7 @@ int	screen_fill(t_data	*data)
 	while (width < MAP_W)
 	{
 		set_data(data->game_data, width);
+		width++;
 	}
 	return (0);
 }
