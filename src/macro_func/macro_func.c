@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 09:07:52 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/15 17:34:55 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/24 21:25:23 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,25 @@ t_bool	mapstr(t_data *data)
 t_bool  select_direction(t_data *data)
 {
     if(data->player->player_direction == 'N')
-		data->game_data->dir_y = 1;
-	else if (data->player->player_direction == 'S')
-		data->game_data->dir_y = -1;
-    else if (data->player->player_direction == 'E')
-		data->game_data->dir_x = 1;
-	else if (data->player->player_direction == 'W')
+    {
 		data->game_data->dir_x = -1;
+		data->game_data->plane_y = -0.66;
+    }
+	else if (data->player->player_direction == 'S')
+	{
+		data->game_data->dir_x = 1;
+		data->game_data->plane_y = 0.66;
+	}
+    else if (data->player->player_direction == 'E')
+	{
+		data->game_data->dir_y = -1;
+		data->game_data->plane_x = 0.66;
+	}
+	else if (data->player->player_direction == 'W')
+	{
+		data->game_data->dir_y = 1;
+		data->game_data->plane_x = 0.66;
+	}
     return (TRUE);
 }
 

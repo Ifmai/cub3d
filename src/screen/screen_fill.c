@@ -6,24 +6,22 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:12:47 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/15 17:38:05 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/24 21:43:49 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
 
-static void	set_data(t_game_data *data, int width)
+static void	set_data(t_game_data *game, int width)
 {
-	//işlem yapcıağımı kısmın çizdiğimiz açıda nerde kalıdığını bakıyoruz bizim bir bakış açımız var ve bu bakış açısında
-	//biz şuan hangi yöne bakıyoruz ?
-	data->camera_x = 2 * width / (double)MAP_W - 1; // işlem yapılan pikselin ışının hangi tarafında kaldığını buluyoruz -1 veya 1 değerini alıyor
-	data->raydir_x = data->dir_x + data->plane_x * data->camera_x;
-	data->raydir_y = data->dir_y + data->plane_y * data->camera_x;
-	data->map_x = (int)data->player->p_x;
-	data->map_y = (int)data->player->p_y;
-	data->delta_dist_x = fabs(1 / data->raydir_x);
-	data->delta_dist_y = fabs(1 / data->raydir_y);
-	data->hit = 0;
+	game->camera_x = 2 * width / (double)MAP_W - 1;
+	game->raydir_x = game->dir_x + game->plane_x * game->camera_x;
+	game->raydir_y = game->dir_y + game->plane_y * game->camera_x;
+	game->map_x = (int)game->player->p_x;
+	game->map_y = (int)game->player->p_y;
+	game->delta_dist_x = fabs(1 / game->raydir_x);
+	game->delta_dist_y = fabs(1 / game->raydir_y);
+	game->hit = 0;
 }
 
 static void	color_painting(t_data *data)
@@ -53,12 +51,12 @@ int	screen_fill(t_data	*data)
 	int	width;
 
 	width = 0;
-	// dir_x dir_y değişkenlerini 1 veya 0 ile değiştiriyor nereye bakması gerekiyorsa.
-	macro_select("SELECT_DIRECTION", data);
+	macro_select("SELECT_DIRECTION", data);// dir_x dir_y değişkenlerini 1 veya 0 ile değiştiriyor nereye bakması gerekiyorsa.
 	color_painting(data);
 	while (width < MAP_W)
 	{
 		set_data(data->game_data, width);
+		wallcheck(data->game_data, data->map);
 		width++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/15 17:30:56 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/24 21:47:42 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,15 @@ typedef struct s_game_data
 	int			map_y;
 	double		delta_dist_x;
 	double		delta_dist_y;
+	double		sidedist_x;
+	double		sidedist_y;
+	int			step_x;
+	int			step_y;
+	int			side;
+	double		wall_dist;
+	int			draw_start;
+	int			draw_end;
+	int			line_height;
 }				t_game_data;
 
 
