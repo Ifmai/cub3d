@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:25:08 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/03 19:55:13 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:41:14 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	draw_image(t_game_data *map, t_data *data, int i)
 	while (a < map->draw_end)
 	{
 		map->my = (int)map->pixel_nbr & (map->h_sixtyfour - 1);
-		map->pixel_nbr += map->pixel_cal;
+		map->pixel_nbr += map->pixel_cal;	
 		if (map->raydir_x > 0 && map->side != 1)
 			map->colour = map->image->so_image[map->h_sixtyfour * \
 			map->my + map->mx];

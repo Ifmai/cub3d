@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 09:04:27 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/03 19:43:13 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:25:57 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,6 @@ void	error_check_file(t_data *data, int count)
 	while(data->map->game_map[++i])
 	{
 		j = -1;
-		printf("%s",data->map->game_map[i]);
 		while(data->map->game_map[i][++j])
 		{
 			if (data->map->game_map[i][j] == 'N' || \

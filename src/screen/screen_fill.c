@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:12:47 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/03 19:46:05 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:42:15 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,11 @@ static void	color_painting(t_data *data)
 	}
 }
 
-int	screen_fill(t_data	*data)
+static void	img_print_screen(t_data *data)
 {
 	int	width;
 
 	width = 0;
-	mlx_clear_window(data->mlx, data->mlx_window);
-	macro_select("SELECT_DIRECTION", data);
-	color_painting(data);
 	while (width < MAP_W)
 	{
 		set_data(data->game_data, width);
@@ -64,5 +61,12 @@ int	screen_fill(t_data	*data)
 		width++;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_window, data->img, 0, 0);
+}
+
+int	screen_fill(t_data	*data)
+{
+	mlx_clear_window(data->mlx, data->mlx_window);
+	color_painting(data);
+	img_print_screen(data);
 	return (0);
 }

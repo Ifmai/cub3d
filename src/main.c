@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:08:10 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/03 19:57:24 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:12:03 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int main(int ac, char **av)
 	    data->img = mlx_new_image(data->mlx, MAP_W, MAP_H);
         define_and_fill(av[1], data);
 		fill_one(data);
+	    macro_select("SELECT_DIRECTION", data);
 /* 		int i = 0;
 		while(data->map->game_map[i])
 			printf("%s\n",data->map->game_map[i++]); */
