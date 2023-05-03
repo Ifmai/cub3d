@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 21:27:51 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/24 21:48:03 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:49:53 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	wallcheck(t_game_data *game)
 	else
 	{
 		game->step_x = 1;
-		game->sidedist_x = (game->player->p_x + 1.0 - game->map_x) * game->delta_dist_x;
+		game->sidedist_x = (game->map_x + 1.0 - game->player->p_x) * game->delta_dist_x;
 	}
 	if (game->raydir_y < 0)
 	{
@@ -32,7 +32,7 @@ void	wallcheck(t_game_data *game)
 	else
 	{
 		game->step_y = 1;
-		game->sidedist_y = (game->player->p_y + 1.0 - game->map_y) * game->delta_dist_y;
+		game->sidedist_y = (game->map_y + 1.0 - game->player->p_y) * game->delta_dist_y;
 	}
 }
 

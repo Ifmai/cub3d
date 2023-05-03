@@ -6,11 +6,31 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 09:04:27 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/11 13:28:58 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:43:13 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
+
+
+void	fill_one(t_data *data)
+{
+	int	i;
+	int y;
+
+	i = 0;
+	while(data->map->game_map[i])
+	{
+		y = 0;
+		while(data->map->game_map[i][y])
+		{
+			if(data->map->game_map[i][y] == 32 || (data->map->game_map[i][y] <= 13 && data->map->game_map[i][y] >= 9))
+				data->map->game_map[i][y] = '1';
+			y++;
+		}
+		i++;
+	}
+}
 
 static int	space_count(char *str, int j)
 {
@@ -98,6 +118,7 @@ void	error_check_file(t_data *data, int count)
 	while(data->map->game_map[++i])
 	{
 		j = -1;
+		printf("%s",data->map->game_map[i]);
 		while(data->map->game_map[i][++j])
 		{
 			if (data->map->game_map[i][j] == 'N' || \
@@ -107,8 +128,8 @@ void	error_check_file(t_data *data, int count)
 			{
 				count++;
 				data->player->player_direction = data->map->game_map[i][j];
-				data->player->p_x = j;
-				data->player->p_y = i;
+				data->player->p_x = i;
+				data->player->p_y = j;
 			}
 		}
 	}

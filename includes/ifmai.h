@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/24 21:47:42 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:27:32 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define LEFT 123
 # define ESC 53
 
-# define MAP_W 1280
-# define MAP_H 1024
+# define MAP_W 1920
+# define MAP_H 1080
 
 # define ERRARG "Error. Sorry only 1 parameters."
 # define ERRFİLE "Wrong File Extension. Error."
@@ -68,9 +68,26 @@ typedef struct s_player
     double  p_y;
 }			t_player;
 
+typedef	struct s_image
+{
+	void	*no;
+	void	*so;
+	void	*we;
+	void	*ea;
+	int		*no_image;
+	int		*so_image;
+	int		*we_image;
+	int		*ea_image;
+}			t_image;
+
 typedef struct s_game_data
 {
 	t_player	*player;//player pozisyonuna ulaşmak için xd.
+	t_image		*image;
+	double		move_speed;
+	double		rotate_speed;
+	int			w_sixtyfour;
+	int			h_sixtyfour;
 	double		hit;//çarpıp çarmadığını kontrol eden değer.
 	double		ray_x;
 	double		ray_y;
@@ -96,6 +113,12 @@ typedef struct s_game_data
 	int			draw_start;
 	int			draw_end;
 	int			line_height;
+	double		wallx;
+	int			mx;
+	int			my;
+	int			colour;
+	double		pixel_cal;
+	double		pixel_nbr;
 }				t_game_data;
 
 
@@ -104,6 +127,7 @@ typedef struct s_data
 	t_map		*map;
 	t_player	*player;
 	t_game_data	*game_data;
+	t_image		*image;
 	void		*img;
 	char		*addr;
 	int			bits_per_pixel;
@@ -127,6 +151,7 @@ void    read_file(char *path, t_data *data);
 void	check_map_wall(char **map);
 void	error_check_file(t_data *data, int count);
 int		screen_fill(t_data	*data);
+void	setupgame(t_game_data *map);
 
 //General utils
 void	error_print(char *error_msg);
@@ -135,9 +160,22 @@ int 	double_strlen(char **str);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		get_color(int *color_rgb);
 
+//screen func :
+void	wallcheck(t_game_data *game);
+void	hitcheck(t_game_data *map, t_map *data);
+void	get_dist(t_game_data *map);
+void	set_image_values(t_game_data *map);
+void	draw_image(t_game_data *map, t_data *data, int i);
+
+
+//game : utils func.
+void	setup_game(t_game_data *map);
+void	add_game_image(t_game_data *map, t_data *data);
+
 //map : utils func.
 int 	check_file_extention(char *path);
 int		lenght_find(char *path);
+void	fill_one(t_data *data);
 
 //macro func.
 int     macro_select(char *str, t_data *data);

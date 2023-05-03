@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 11:10:35 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/15 17:37:45 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/04/25 12:50:38 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,5 @@ int	get_color(int *color_rgb)
 			total += (color_rgb[i] * 1);
 		i++;
 	}
-	printf("burdayım");
-
 	return (total);
 }

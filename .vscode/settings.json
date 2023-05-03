@@ -3,7 +3,8 @@
         "ifmai.h": "c",
         "libft.h": "c",
         "*.a": "c",
-        "get_next_line.h": "c"
+        "get_next_line.h": "c",
+        "screen_draw.C": "cpp"
     },
     "editor.insertSpaces": false
 }
