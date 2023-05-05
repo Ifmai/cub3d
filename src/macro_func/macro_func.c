@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 09:07:52 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/25 16:06:34 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:06:49 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_bool  select_direction(t_data *data)
 	else if (data->player->player_direction == 'W')
 	{
 		data->game_data->dir_y = 1;
-		data->game_data->plane_x = 0.66;
+		data->game_data->plane_x = -0.66;
 	}
     return (TRUE);
 }
@@ -65,8 +65,6 @@ t_bool fillstruct(t_data *data)
     data->game_data->ray_y = 0;
     data->game_data->dir_x = 0;
     data->game_data->dir_y = 0;
-    data->game_data->plane_x = 0;
-    data->game_data->plane_y = 0.66;
     data->game_data->player = data->player;
 	data->game_data->image = data->image;
     data->map->color_g = malloc(sizeof(int) * 3);

@@ -6,13 +6,13 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 21:27:51 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/03 20:32:43 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:19:08 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
 
-void	wallcheck(t_game_data *game)
+void	wallcheck(t_game_data *game) // wallcheck site ile aynı kontrol ettim.
 {
 	if (game->raydir_x < 0)
 	{
@@ -36,7 +36,7 @@ void	wallcheck(t_game_data *game)
 	}
 }
 
-void	hitcheck(t_game_data *map, t_map *data)
+void	hitcheck(t_game_data *map, t_map *data) // site ile aynı hit check ?
 {
 	while (map->hit == 0)
 	{
@@ -57,7 +57,7 @@ void	hitcheck(t_game_data *map, t_map *data)
 	}
 }
 
-void	get_dist(t_game_data *map)
+void	get_dist(t_game_data *map)// siteye göre doğru olması gerektiği gibi hesaplanıyor.
 {
 	if (map->side == 0)
 		map->wall_dist = map->sidedist_x - map->delta_dist_x;

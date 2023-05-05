@@ -6,13 +6,13 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:12:47 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/03 20:42:15 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:20:21 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
 
-static void	set_data(t_game_data *game, int width)
+static void	set_data(t_game_data *game, int width) // data siteye göre aynı şekilde hesaplanıyor.
 {
 	game->camera_x = (2 * width / (double)MAP_W - 1);
 	game->raydir_x = game->dir_x + game->plane_x * game->camera_x;
@@ -52,12 +52,12 @@ static void	img_print_screen(t_data *data)
 	width = 0;
 	while (width < MAP_W)
 	{
-		set_data(data->game_data, width);
-		wallcheck(data->game_data);
-		hitcheck(data->game_data, data->map);
-		get_dist(data->game_data);
-		set_image_values(data->game_data);
-		draw_image(data->game_data, data, width); 
+		set_data(data->game_data, width);//true
+		wallcheck(data->game_data);//true
+		hitcheck(data->game_data, data->map);// true
+		get_dist(data->game_data); // true
+		set_image_values(data->game_data); // burda veya drawda sorun var.
+		draw_image(data->game_data, data, width); //burda olması gerekiyor şuan sorunlar. ?
 		width++;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_window, data->img, 0, 0);
