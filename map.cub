@@ -1,7 +1,7 @@
 NO ./texture/block.xpm
-SO ./texture/block.xpm
-WE ./texture/block.xpm
-EA ./texture/block.xpm
+SO ./texture/block2.xpm
+WE ./texture/minecraft.xpm
+EA ./texture/odun.xpm
 
 
 F 220,100,0

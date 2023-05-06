@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 21:27:51 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/05 18:19:08 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/05 23:17:42 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ void	hitcheck(t_game_data *map, t_map *data) // site ile aynı hit check ?
 	}
 }
 
-void	get_dist(t_game_data *map)// siteye göre doğru olması gerektiği gibi hesaplanıyor.
+void	get_dist(t_game_data *map, t_data *data)// siteye göre doğru olması gerektiği gibi hesaplanıyor.
 {
 	if (map->side == 0)
-		map->wall_dist = map->sidedist_x - map->delta_dist_x;
+		map->wall_dist = (map->map_x - data->player->p_x + (1 + map->step_x) / 2) / map->raydir_x;
 	else
-		map->wall_dist = map->sidedist_y - map->delta_dist_y;
+		map->wall_dist = (map->map_y - data->player->p_y + (1 + map->step_y) / 2) / map->raydir_y;
 	map->line_height = (int)(MAP_H / map->wall_dist);
 	map->draw_start = -map->line_height / 2 + MAP_H / 2;
 	if (map->draw_start < 0)

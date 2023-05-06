@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 11:10:35 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/25 12:50:38 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/05 23:20:23 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	error_print(char *error_msg)
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	char	*dst;
+	int	*dst;
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 int	get_color(int *color_rgb)

@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:08:10 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/05 17:33:10 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:29:36 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ static void define_and_fill(char *path, t_data *data)
     macro_select("FILLSTRUCT", data);
     data->map->game_map = ft_calloc(sizeof(char *) , lenght_find(path));
     read_file(path, data);
+    fill_one(data);
+    int z = 0;
+    while(data->map->game_map[z])
+        printf("%s\n",data->map->game_map[z++]);
 	check_map_wall(data->map->game_map);
     error_check_file(data, 0);
     data->map->ground_color = ft_split(data->map->ground_colors, ',');
@@ -34,8 +38,6 @@ static void define_and_fill(char *path, t_data *data)
     data->inner = get_color(data->map->color_inner);
     add_game_image(data->game_data, data);
     setup_game(data->game_data);
-	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length,
-									&data->endian);
 }
 
 int	close_window(int keycode, t_data *data)
@@ -64,10 +66,11 @@ int main(int ac, char **av)
         data->game_data = malloc(sizeof(t_game_data));
         data->image = malloc(sizeof(t_image));
         data->mlx = mlx_init();
+        define_and_fill(av[1], data);
 	    data->mlx_window = mlx_new_window(data->mlx, MAP_W, MAP_H, "Cub3D");
 	    data->img = mlx_new_image(data->mlx, MAP_W, MAP_H);
-        define_and_fill(av[1], data);
-		fill_one(data);
+        data->addr = (int *)mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length,
+									&data->endian);
 	    macro_select("SELECT_DIRECTION", data);
         mlx_hook(data->mlx_window, 2, 1L << 0, close_window, data);
        	mlx_loop_hook(data->mlx, screen_fill, data);

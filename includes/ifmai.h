@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/03 19:27:32 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/05 23:18:45 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ typedef struct s_data
 	t_game_data	*game_data;
 	t_image		*image;
 	void		*img;
-	char		*addr;
+	int			*addr;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
@@ -163,7 +163,7 @@ int		get_color(int *color_rgb);
 //screen func :
 void	wallcheck(t_game_data *game);
 void	hitcheck(t_game_data *map, t_map *data);
-void	get_dist(t_game_data *map);
+void	get_dist(t_game_data *map, t_data *data);
 void	set_image_values(t_game_data *map);
 void	draw_image(t_game_data *map, t_data *data, int i);
 

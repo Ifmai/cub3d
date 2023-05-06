@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:12:47 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/05 18:20:21 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/05 23:36:23 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	set_data(t_game_data *game, int width) // data siteye göre aynı ş
 
 static void	color_painting(t_data *data)
 {
-	int	i;
+ 	int	i;
 	int	j;
 	
 	i = 0;
@@ -36,14 +36,15 @@ static void	color_painting(t_data *data)
 		while (j < MAP_W)
 		{
 			if (i < MAP_H / 2)
-				my_mlx_pixel_put(data, j, i, data->inner);
+				data->addr[i * MAP_W + j] = data->inner;
 			else
-				my_mlx_pixel_put(data, j, i, data->ground);
+				data->addr[i * MAP_W + j] = data->ground;
 			j++;
 		}
 		i++;
 	}
 }
+
 
 static void	img_print_screen(t_data *data)
 {
@@ -55,7 +56,7 @@ static void	img_print_screen(t_data *data)
 		set_data(data->game_data, width);//true
 		wallcheck(data->game_data);//true
 		hitcheck(data->game_data, data->map);// true
-		get_dist(data->game_data); // true
+		get_dist(data->game_data, data); // true
 		set_image_values(data->game_data); // burda veya drawda sorun var.
 		draw_image(data->game_data, data, width); //burda olması gerekiyor şuan sorunlar. ?
 		width++;
