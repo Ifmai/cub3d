@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 11:10:35 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/05 23:20:23 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/06 18:59:14 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,18 @@ void	error_print(char *error_msg)
 	exit (0);
 }
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	str_len(char *str)
 {
-	int	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
-
-int	get_color(int *color_rgb)
-{
-	int		total;
-	int		i;
+	int	i;
 
 	i = 0;
-	total = 0;
-	while (i < 3)
-	{
-		if(i == 0)
-			total += (color_rgb[i] * 65536);
-		else if (i == 1)
-			total += (color_rgb[i] * 256);
-		else
-			total += (color_rgb[i] * 1);
+	while (str[i] != '\0')
 		i++;
-	}
-	return (total);
+	return (i);
+}
+
+void	close_window(t_data *data)
+{
+	mlx_destroy_window(data->mlx, data->mlx_window);
+	exit(0);
 }

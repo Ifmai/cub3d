@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:08:10 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/06 17:29:36 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:14:12 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ static void define_and_fill(char *path, t_data *data)
     data->map->game_map = ft_calloc(sizeof(char *) , lenght_find(path));
     read_file(path, data);
     fill_one(data);
-    int z = 0;
-    while(data->map->game_map[z])
-        printf("%s\n",data->map->game_map[z++]);
 	check_map_wall(data->map->game_map);
     error_check_file(data, 0);
     data->map->ground_color = ft_split(data->map->ground_colors, ',');
@@ -40,16 +37,6 @@ static void define_and_fill(char *path, t_data *data)
     setup_game(data->game_data);
 }
 
-int	close_window(int keycode, t_data *data)
-{
-	if(keycode == 53)
-	{
-		mlx_destroy_window(data->mlx, data->mlx_window);
-		exit(0);
-	}
-	return (0);
-}
-
 int main(int ac, char **av)
 {
     t_data  *data;
@@ -60,11 +47,12 @@ int main(int ac, char **av)
     {
         if(!check_file_extention(av[1]))
             error_print(ERRFİLE);
-        data = malloc(sizeof(t_data));
-        data->map = malloc(sizeof(t_map));
-        data->player = malloc(sizeof(t_player));
-        data->game_data = malloc(sizeof(t_game_data));
-        data->image = malloc(sizeof(t_image));
+        data = malloc(sizeof(t_data) * 1);
+        data->map = malloc(sizeof(t_map) * 1);
+        data->player = malloc(sizeof(t_player) * 1);
+        data->game_data = malloc(sizeof(t_game_data) * 1);
+        data->image = malloc(sizeof(t_image) * 1);
+        data->key = malloc(sizeof(t_key) * 1);
         data->mlx = mlx_init();
         define_and_fill(av[1], data);
 	    data->mlx_window = mlx_new_window(data->mlx, MAP_W, MAP_H, "Cub3D");
@@ -72,8 +60,10 @@ int main(int ac, char **av)
         data->addr = (int *)mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length,
 									&data->endian);
 	    macro_select("SELECT_DIRECTION", data);
-        mlx_hook(data->mlx_window, 2, 1L << 0, close_window, data);
+	    //mlx_hook(data->mlx_window, 17, 0, clo, data);
        	mlx_loop_hook(data->mlx, screen_fill, data);
+        mlx_hook(data->mlx_window, 2, 0, move, data);
+        mlx_hook(data->mlx_window, 3, 0, move_two, data);
         mlx_loop(data->mlx);
     }
 }

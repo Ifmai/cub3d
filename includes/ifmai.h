@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/05 23:18:45 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/06 19:36:27 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define RIGHT 124
 # define LEFT 123
 # define ESC 53
+# define M 46
 
 # define MAP_W 1920
 # define MAP_H 1080
@@ -45,6 +46,18 @@ typedef enum e_bool
     FALSE = 0,
     TRUE = 1
 }	t_bool;
+
+typedef struct s_key
+{
+	int		w_key;
+	int		s_key;
+	int		d_key;
+	int		a_key;
+	int		esc_key;
+	int		cam_left;
+	int		cam_right;
+	int		map_key;
+}			t_key;
 
 typedef struct s_map_data
 {
@@ -128,6 +141,7 @@ typedef struct s_data
 	t_player	*player;
 	t_game_data	*game_data;
 	t_image		*image;
+	t_key		*key;
 	void		*img;
 	int			*addr;
 	int			bits_per_pixel;
@@ -153,10 +167,19 @@ void	error_check_file(t_data *data, int count);
 int		screen_fill(t_data	*data);
 void	setupgame(t_game_data *map);
 
+//Move func.
+int		move(int key, t_data *data);
+int		move_two(int key, t_data *data);
+void	move_draw(t_data *data);
+
 //General utils
+void	close_window(t_data *data);
 void	error_print(char *error_msg);
 void	free_double_array(char **free_array);
 int 	double_strlen(char **str);
+int		str_len(char *str);
+
+//Color Utils
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		get_color(int *color_rgb);
 
