@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/06 19:36:27 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:47:58 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,8 @@ typedef struct s_game_data
 	int			colour;
 	double		pixel_cal;
 	double		pixel_nbr;
+	double		old;
+	double		old2;
 }				t_game_data;
 
 
@@ -170,7 +172,12 @@ void	setupgame(t_game_data *map);
 //Move func.
 int		move(int key, t_data *data);
 int		move_two(int key, t_data *data);
-void	move_draw(t_data *data);
+void	move_draw(t_data *data, t_game_data *game_data);
+void	move_forward_backward(t_data *data, t_game_data *g_data);
+void	move_right(t_data *data, t_game_data *g_data);
+void	move_left(t_data *data, t_game_data *g_data);
+void	cam_right(t_game_data *g_data);
+void	cam_left(t_game_data *g_data);
 
 //General utils
 void	close_window(t_data *data);
