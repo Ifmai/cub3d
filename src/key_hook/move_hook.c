@@ -6,13 +6,13 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:44:04 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/12 16:48:27 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:55:53 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
 
-int	move(int key, t_data *data)
+int	move_1(int key, t_data *data)
 {
 	if (key == ESC)
 		close_window(data);
@@ -33,7 +33,7 @@ int	move(int key, t_data *data)
 	return (0);
 }
 
-int	move_two(int key, t_data *data)
+int	move_2(int key, t_data *data)
 {
 	if (key == ESC)
 		close_window(data);
@@ -54,7 +54,7 @@ int	move_two(int key, t_data *data)
 	return (0);
 }
 
-void	move_draw(t_data *data, t_game_data *game_data)
+void	move_norm(t_data *data, t_game_data *game_data)
 {
 	move_forward_backward(data, game_data);
 	if(data->key->a_key)

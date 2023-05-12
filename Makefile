@@ -1,9 +1,9 @@
 SRCS = ./src/main.c \
-		./src/utils/general_utils.c ./src/utils/map_utils.c src/utils/game_utils.c ./src/utils/color_utils.c ./src/key_hook/move_hook.c \
+		./src/utils/general_utils.c ./src/utils/map_utils.c src/utils/game_utils.c ./src/utils/color_utils.c \
 		./src/map_func/map_parser.c ./src/map_func/error_check_file.c \
 		./src/macro_func/macro_main.c ./src/macro_func/macro_func.c \
 		./src/screen/screen_fill.c ./src/screen/draw_image.c ./src/screen/screen_check.c \
-		./src/key_hook/move_camera.c ./src/key_hook/move_hero.c ./src/key_hook/move_hook.c
+		./src/key_hook/move_camera.c ./src/key_hook/move_hero.c ./src/key_hook/move_hook.c \
 
 NAME = Cub3D
 CC = gcc

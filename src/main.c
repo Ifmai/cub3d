@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:08:10 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/09 13:14:12 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:56:07 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int main(int ac, char **av)
 									&data->endian);
 	    macro_select("SELECT_DIRECTION", data);
 	    //mlx_hook(data->mlx_window, 17, 0, clo, data);
+        mlx_hook(data->mlx_window, 2, 0, move_1, data);
+        mlx_hook(data->mlx_window, 3, 0, move_2, data);
        	mlx_loop_hook(data->mlx, screen_fill, data);
-        mlx_hook(data->mlx_window, 2, 0, move, data);
-        mlx_hook(data->mlx_window, 3, 0, move_two, data);
         mlx_loop(data->mlx);
     }
 }

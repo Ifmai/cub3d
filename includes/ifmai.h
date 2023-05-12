@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/12 16:47:58 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:55:57 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,9 +170,9 @@ int		screen_fill(t_data	*data);
 void	setupgame(t_game_data *map);
 
 //Move func.
-int		move(int key, t_data *data);
-int		move_two(int key, t_data *data);
-void	move_draw(t_data *data, t_game_data *game_data);
+int		move_1(int key, t_data *data);
+int		move_2(int key, t_data *data);
+void	move_norm(t_data *data, t_game_data *game_data);
 void	move_forward_backward(t_data *data, t_game_data *g_data);
 void	move_right(t_data *data, t_game_data *g_data);
 void	move_left(t_data *data, t_game_data *g_data);

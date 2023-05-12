@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:12:47 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/12 15:17:24 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:55:32 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ int	screen_fill(t_data	*data)
 		width++;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_window, data->img, 0, 0);
-	move_draw(data, data->game_data);
+	move_norm(data, data->game_data);
 	return (0);
 }
