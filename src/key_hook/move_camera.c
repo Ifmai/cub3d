@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_camera.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rturker <rturker@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 16:35:25 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/12 16:50:52 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:19:50 by rturker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	cam_right(t_game_data *g_data)
 void	cam_left(t_game_data *g_data)
 {
 	g_data->old = g_data->dir_x;
-
 	g_data->dir_x = g_data->dir_x * cos(-g_data->rotate_speed) - \
 	g_data->dir_y * sin(-g_data->rotate_speed);
 	g_data->dir_y = g_data->old * sin(-g_data->rotate_speed) + \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_hook.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rturker <rturker@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:44:04 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/12 16:55:53 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:26:16 by rturker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int	move_2(int key, t_data *data)
 void	move_norm(t_data *data, t_game_data *game_data)
 {
 	move_forward_backward(data, game_data);
-	if(data->key->a_key)
-		move_left(data,game_data);
+	if (data->key->a_key)
+		move_left(data, game_data);
 	if (data->key->cam_left)
 		cam_left(game_data);
 	if (data->key->d_key)

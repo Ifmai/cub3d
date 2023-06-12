@@ -3,40 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   screen_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rturker <rturker@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 21:27:51 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/09 13:32:54 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:02:23 by rturker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
 
-void	wallcheck(t_game_data *game) // wallcheck site ile aynı kontrol ettim.
+void	wallcheck(t_game_data *game)
 {
 	if (game->raydir_x < 0)
 	{
 		game->step_x = -1;
-		game->sidedist_x = (game->player->p_x - game->map_x) * game->delta_dist_x;
+		game->sidedist_x = (game->player->p_x - game->map_x)
+			* game->delta_dist_x;
 	}
 	else
 	{
 		game->step_x = 1;
-		game->sidedist_x = (game->map_x + 1.0 - game->player->p_x) * game->delta_dist_x;
+		game->sidedist_x = (game->map_x + 1.0 - game->player->p_x)
+			* game->delta_dist_x;
 	}
 	if (game->raydir_y < 0)
 	{
 		game->step_y = -1;
-		game->sidedist_y = (game->player->p_y - game->map_y) * game->delta_dist_y;
+		game->sidedist_y = (game->player->p_y - game->map_y)
+			* game->delta_dist_y;
 	}
 	else
 	{
 		game->step_y = 1;
-		game->sidedist_y = (game->map_y + 1.0 - game->player->p_y) * game->delta_dist_y;
+		game->sidedist_y = (game->map_y + 1.0 - game->player->p_y)
+			* game->delta_dist_y;
 	}
 }
 
-void	hitcheck(t_game_data *map, t_map *data) // site ile aynı hit check ?
+void	hitcheck(t_game_data *map, t_map *data)
 {
 	while (map->hit == 0)
 	{
@@ -57,12 +61,12 @@ void	hitcheck(t_game_data *map, t_map *data) // site ile aynı hit check ?
 	}
 }
 
-void	get_dist(t_game_data *map, t_data *data)// siteye göre doğru olması gerektiği gibi hesaplanıyor.
+void	get_dist(t_game_data *map)
 {
 	if (map->side == 0)
-		map->wall_dist = (map->map_x - data->player->p_x + (1 + map->step_x) / 2) / map->raydir_x;
+		map->wall_dist = map->sidedist_x - map->delta_dist_x;
 	else
-		map->wall_dist = (map->map_y - data->player->p_y + (1 + map->step_y) / 2) / map->raydir_y;
+		map->wall_dist = map->sidedist_y - map->delta_dist_y;
 	map->line_height = (int)(MAP_H / map->wall_dist);
 	map->draw_start = -map->line_height / 2 + MAP_H / 2;
 	if (map->draw_start < 0)

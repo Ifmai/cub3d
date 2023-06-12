@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   screen_fill.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rturker <rturker@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:12:47 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/18 15:42:48 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:03:37 by rturker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
 
-static void	set_data(t_game_data *game, int width) // data siteye göre aynı şekilde hesaplanıyor.
+static void	set_data(t_game_data *game, int width)
 {
 	game->camera_x = (2 * width / (double)MAP_W - 1);
 	game->raydir_x = game->dir_x + game->plane_x * game->camera_x;
@@ -26,9 +26,9 @@ static void	set_data(t_game_data *game, int width) // data siteye göre aynı ş
 
 static void	color_painting(t_data *data)
 {
- 	int	i;
+	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < MAP_H)
 	{
@@ -48,18 +48,18 @@ static void	color_painting(t_data *data)
 int	screen_fill(t_data	*data)
 {
 	int	width;
-	
+
 	mlx_clear_window(data->mlx, data->mlx_window);
 	color_painting(data);
 	width = 0;
 	while (width < MAP_W)
 	{
-		set_data(data->game_data, width);//true
-		wallcheck(data->game_data);//true
-		hitcheck(data->game_data, data->map);// true
-		get_dist(data->game_data, data); // true
-		set_image_values(data->game_data); // burda veya drawda sorun var.
-		draw_image(data->game_data, data, width); //burda olması gerekiyor şuan sorunlar. ?
+		set_data(data->game_data, width);
+		wallcheck(data->game_data);
+		hitcheck(data->game_data, data->map);
+		get_dist(data->game_data);
+		set_image_values(data->game_data);
+		draw_image(data->game_data, data, width);
 		width++;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_window, data->img, 0, 0);

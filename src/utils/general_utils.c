@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rturker <rturker@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 11:10:35 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/06 18:59:14 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:58:11 by rturker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ int	str_len(char *str)
 	return (i);
 }
 
-void	close_window(t_data *data)
+int	close_window(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->mlx_window);
 	exit(0);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rturker <rturker@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:30:07 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/14 16:31:13 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:00:41 by rturker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_file_extention(char *path)
 
 	i = 0;
 	check = "buc.";
-	while(path[i + 1] != 0)
+	while (path[i + 1] != 0)
 		i++;
 	while (*check != 0)
 	{
@@ -31,7 +31,7 @@ int	check_file_extention(char *path)
 	return (1);
 }
 
-static int		cub_lenght(char *path)
+static int	cub_lenght(char *path)
 {
 	char	*buffer;
 	int		i;
@@ -40,19 +40,19 @@ static int		cub_lenght(char *path)
 	i = 0;
 	fd = open(path, O_RDONLY);
 	buffer = get_next_line(fd);
-	while(1)
+	while (1)
 	{
 		i++;
 		free(buffer);
 		buffer = get_next_line(fd);
-		if(!buffer)
-			break;
+		if (!buffer)
+			break ;
 	}
 	close(fd);
 	return (i + 1);
 }
 
-static char		**temp_create(char *path, int len)
+static char	**temp_create(char *path, int len)
 {
 	char	**temp;
 	int		i;
@@ -61,7 +61,7 @@ static char		**temp_create(char *path, int len)
 	i = 0;
 	temp = malloc(sizeof(char *) * len);
 	fd = open(path, O_RDONLY);
-	while(i < len)
+	while (i < len)
 	{
 		temp[i] = get_next_line(fd);
 		i++;
@@ -82,10 +82,10 @@ int	lenght_find(char *path)
 	len = 0;
 	temp_len = cub_lenght(path);
 	temp_cub = temp_create(path, temp_len);
-	while(temp_cub[i] != 0)
+	while (temp_cub[i] != 0)
 	{
 		j = 0;
-		if(temp_cub[i][j] &&
+		if (temp_cub[i][j] &&
 			(temp_cub[i][j] != 'N' && temp_cub[i][j] != 'S' && \
 			temp_cub[i][j] != 'W' && temp_cub[i][j] != 'E' && \
 			temp_cub[i][j] != 'C' && temp_cub[i][j] != 'F'))

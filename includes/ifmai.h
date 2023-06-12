@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:07:45 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/12 16:55:57 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:36:36 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@
 # define MAP_H 1080
 
 # define ERRARG "Error. Sorry only 1 parameters."
-# define ERRFİLE "Wrong File Extension. Error."
+# define ERRFILE "Wrong File Extension. Error."
 # define EMPTYFILE "Empty File. Error"
 # define MAP_SIZE "Map size min tree line. Error."
-# define PLAYER_ERR "Max one player. Error."
+# define PLAYER_ERR "Only one player. Error."
 # define MAP_WALL "Map must be surrounded by walls. Error."
 
 typedef enum e_bool
 {
-    FALSE = 0,
-    TRUE = 1
+	FALSE = 0,
+	TRUE = 1
 }	t_bool;
 
 typedef struct s_key
@@ -61,27 +61,27 @@ typedef struct s_key
 
 typedef struct s_map_data
 {
-	char    *no_wall_path;
-    char    *so_wall_path;
-    char    *we_wall_path;
-    char    *ea_wall_path;
+	char	*no_wall_path;
+	char	*so_wall_path;
+	char	*we_wall_path;
+	char	*ea_wall_path;
 	char	*inner_color;
 	char	*ground_colors;
 	char	**in_color;
 	char	**ground_color;
 	int		*color_g;
 	int		*color_inner;
-    char    **game_map;
+	char	**game_map;
 }				t_map;
 
 typedef struct s_player
 {
 	char	player_direction;
-    double  p_x;
-    double  p_y;
+	double	p_x;
+	double	p_y;
 }			t_player;
 
-typedef	struct s_image
+typedef struct s_image
 {
 	void	*no;
 	void	*so;
@@ -95,20 +95,20 @@ typedef	struct s_image
 
 typedef struct s_game_data
 {
-	t_player	*player;//player pozisyonuna ulaşmak için xd.
+	t_player	*player;
 	t_image		*image;
 	double		move_speed;
 	double		rotate_speed;
 	int			w_sixtyfour;
 	int			h_sixtyfour;
-	double		hit;//çarpıp çarmadığını kontrol eden değer.
+	double		hit;
 	double		ray_x;
 	double		ray_y;
-	double		plane_x;// kamera vektörleri bize fov u ayarlıyorlar.
+	double		plane_x;
 	double		plane_y;
 	double		wall_x;
 	double		wall_y;
-	double		dir_x;// kamera başlangıç ve yönlendirme karakterin işte hangi yöne bakıcağını belirlediğimiz arkadaşlar bu değişkenler.
+	double		dir_x;
 	double		dir_y;
 	double		camera_x;
 	double		raydir_x;
@@ -136,7 +136,6 @@ typedef struct s_game_data
 	double		old2;
 }				t_game_data;
 
-
 typedef struct s_data
 {
 	t_map		*map;
@@ -156,20 +155,17 @@ typedef struct s_data
 	void		*so_wall;
 	void		*we_wall;
 	void		*ea_wall;
-    char		*buffer;
+	char		*buffer;
 	int			ground;
 	int			inner;
-}            t_data;
+}				t_data;
 
-
-//Main func.
-void    read_file(char *path, t_data *data);
+void	read_file(char *path, t_data *data);
 void	check_map_wall(char **map);
 void	error_check_file(t_data *data, int count);
 int		screen_fill(t_data	*data);
 void	setupgame(t_game_data *map);
 
-//Move func.
 int		move_1(int key, t_data *data);
 int		move_2(int key, t_data *data);
 void	move_norm(t_data *data, t_game_data *game_data);
@@ -179,38 +175,31 @@ void	move_left(t_data *data, t_game_data *g_data);
 void	cam_right(t_game_data *g_data);
 void	cam_left(t_game_data *g_data);
 
-//General utils
-void	close_window(t_data *data);
+int		close_window(t_data *data);
 void	error_print(char *error_msg);
 void	free_double_array(char **free_array);
-int 	double_strlen(char **str);
+int		double_strlen(char **str);
 int		str_len(char *str);
 
-//Color Utils
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		get_color(int *color_rgb);
 
-//screen func :
 void	wallcheck(t_game_data *game);
 void	hitcheck(t_game_data *map, t_map *data);
-void	get_dist(t_game_data *map, t_data *data);
+void	get_dist(t_game_data *map);
 void	set_image_values(t_game_data *map);
 void	draw_image(t_game_data *map, t_data *data, int i);
 
-
-//game : utils func.
 void	setup_game(t_game_data *map);
 void	add_game_image(t_game_data *map, t_data *data);
 
-//map : utils func.
-int 	check_file_extention(char *path);
+int		check_file_extention(char *path);
 int		lenght_find(char *path);
 void	fill_one(t_data *data);
 
-//macro func.
-int     macro_select(char *str, t_data *data);
+int		macro_select(char *str, t_data *data);
 t_bool	fillstruct(t_data *data);
 t_bool	mapstr(t_data *data);
-t_bool  select_direction(t_data *data);
+t_bool	select_direction(t_data *data);
 
 #endif

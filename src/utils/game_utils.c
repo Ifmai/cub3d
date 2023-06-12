@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 12:50:54 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/05/03 18:33:06 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:39:14 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	add_game_image(t_game_data *game, t_data *data)
 		&game->w_sixtyfour, &game->w_sixtyfour);
 	game->image->we = mlx_xpm_file_to_image(data->mlx, data->map->we_wall_path, \
 		&game->w_sixtyfour, &game->w_sixtyfour);
-	game->image->no_image = (int *)mlx_get_data_addr(game->image->no, &data->bits_per_pixel, \
-	&data->line_length, &data->endian);
-	game->image->so_image = (int *)mlx_get_data_addr(game->image->so, &data->bits_per_pixel, \
-	&data->line_length, &data->endian);
-	game->image->ea_image = (int *)mlx_get_data_addr(game->image->ea, &data->bits_per_pixel, \
-	&data->line_length, &data->endian);
-	game->image->we_image = (int *)mlx_get_data_addr(game->image->we, &data->bits_per_pixel, \
-	&data->line_length, &data->endian);
+	game->image->no_image = (int *)mlx_get_data_addr(game->image->no,
+			&data->bits_per_pixel, &data->line_length, &data->endian);
+	game->image->so_image = (int *)mlx_get_data_addr(game->image->so,
+			&data->bits_per_pixel, &data->line_length, &data->endian);
+	game->image->ea_image = (int *)mlx_get_data_addr(game->image->ea,
+			&data->bits_per_pixel, &data->line_length, &data->endian);
+	game->image->we_image = (int *)mlx_get_data_addr(game->image->we,
+			&data->bits_per_pixel, &data->line_length, &data->endian);
 }

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   macro_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rturker <rturker@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:00:27 by hozdemir          #+#    #+#             */
-/*   Updated: 2023/04/12 16:17:30 by hozdemir         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:19:20 by rturker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ifmai.h"
 
-static t_bool  macrocomp(const char *s1, const char *s2)
+static t_bool	macrocomp(const char *s1, const char *s2)
 {
-	int     i;
+	int	i;
 
 	i = 0;
 	if (!s1 || !s2)
@@ -28,14 +28,13 @@ static t_bool  macrocomp(const char *s1, const char *s2)
 	return (TRUE);
 }
 
-int     macro_select(char *str, t_data *data)
+int	macro_select(char *str, t_data *data)
 {
-    if (macrocomp(str, "FILLSTRUCT"))
-        return (fillstruct(data));
-	else if (macrocomp(str , "MAPSTR"))
+	if (macrocomp(str, "FILLSTRUCT"))
+		return (fillstruct(data));
+	else if (macrocomp(str, "MAPSTR"))
 		return (mapstr(data));
 	else if (macrocomp(str, "SELECT_DIRECTION"))
 		return (select_direction(data));
 	return (FALSE);
 }
-
